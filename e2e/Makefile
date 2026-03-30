@@ -1,4 +1,4 @@
-KUBERNETES_VERSION := v1.33.7 # renovate: kindest/node
+KUBERNETES_VERSION := v1.34.3 # renovate: kindest/node
 REGISTRY := ghcr.io/cybozu-go/
 KIND_CLUSTER_NAME=website-e2e
 
