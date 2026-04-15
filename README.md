@@ -46,7 +46,7 @@ spec:
         git clone $REPO_URL
         cd $REPO_NAME
         git checkout $REVISION
-        pnpm install
+        pnpm install --frozen-lockfile
         pnpm run build
         rm -rf $OUTPUT/*
         cp -r _book/* $OUTPUT/
@@ -97,7 +97,7 @@ rm -rf $REPO_NAME
 git clone $REPO_URL
 cd $REPO_NAME
 git checkout $REVISION
-pnpm install
+pnpm install --frozen-lockfile
 pnpm run build
 rm -rf $OUTPUT/*
 cp -r _book/* $OUTPUT/

@@ -100,7 +100,7 @@ cd $HOME
 git clone $REPO_URL
 cd $REPO_NAME
 git checkout $REVISION
-pnpm install && pnpm run build
+pnpm install --lockfile-only && pnpm install --frozen-lockfile && pnpm run build
 cp -r _book/* $OUTPUT/
 `
 			bsCm := &corev1.ConfigMap{}
@@ -553,7 +553,7 @@ cd $HOME
 git clone $REPO_URL
 cd $REPO_NAME
 git checkout $REVISION
-pnpm install && pnpm run build
+pnpm install --frozen-lockfile && pnpm run build
 cp -r _book/* $OUTPUT/
 `
 	b.website.Spec.BuildScript = websitev1beta1.DataSource{
@@ -572,7 +572,7 @@ func (b *websiteBuilder) withAfterBuildScript() *websiteBuilder {
 	git checkout $REVISION
 	sed -i -e "/host/c\      \"host\": \"http://${RESOURCE_NAME}.${RESOURCE_NAMESPACE}.example.com/es\"," book.js
 	sed -i -e "/index/c\      \"index\": \"${RESOURCE_NAME}-${REVISION}\"," book.js
-	pnpm install
+	pnpm install --frozen-lockfile
 	pnpm run build
 	curl -X DELETE ${ELASTIC_HOST}/${RESOURCE_NAME}-${REVISION}
 	curl -X PUT ${ELASTIC_HOST}/${RESOURCE_NAME}-${REVISION} -H 'Content-Type: application/json' -d @mappings.json

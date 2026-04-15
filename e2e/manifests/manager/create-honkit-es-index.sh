@@ -8,7 +8,8 @@ git checkout $REVISION
 sed -i -e "/host/c\      \"host\": \"http://${RESOURCE_NAME}.${RESOURCE_NAMESPACE}.example.com/es\"," book.js
 sed -i -e "/index/c\      \"index\": \"${RESOURCE_NAME}-${REVISION}\"," book.js
 
-pnpm install
+pnpm install --lockfile-only
+pnpm install --frozen-lockfile
 pnpm run build
 
 curl -X DELETE ${ELASTIC_HOST}/${RESOURCE_NAME}-${REVISION}
