@@ -1,4 +1,4 @@
-FROM ghcr.io/cybozu/ubuntu:22.04 as base
+FROM ghcr.io/cybozu/ubuntu:24.04 as base
 
 LABEL org.opencontainers.image.source=https://github.com/cybozu-go/website-operator
 
@@ -8,6 +8,9 @@ USER 10000:10000
 ENTRYPOINT ["/website-operator"]
 
 FROM base as repo-checker
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git openssh-client \
+    && rm -rf /var/lib/apt/lists/*
 COPY repo-checker /
 USER 10000:10000
 ENTRYPOINT ["/repo-checker"]
