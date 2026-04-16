@@ -376,7 +376,7 @@ metadata:
 spec:
   containers:
   - name: ubuntu
-    image: ghcr.io/cybozu/ubuntu:22.04
+    image: ghcr.io/cybozu/ubuntu:24.04
     command: ["/usr/local/bin/pause"]
 `,
 			}
@@ -481,6 +481,7 @@ spec:
 			site := newWebSite().withRawBuildScript().withAfterBuildScript().build()
 			err := k8sClient.Create(ctx, site)
 			Expect(err).NotTo(HaveOccurred())
+
 
 			job := batchv1.Job{}
 			Eventually(func() error {
