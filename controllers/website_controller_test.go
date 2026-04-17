@@ -482,7 +482,6 @@ spec:
 			err := k8sClient.Create(ctx, site)
 			Expect(err).NotTo(HaveOccurred())
 
-
 			job := batchv1.Job{}
 			Eventually(func() error {
 				return k8sClient.Get(ctx, client.ObjectKey{Namespace: "test", Name: "mysite"}, &job)
