@@ -28,7 +28,7 @@ test: launch-kind load-images setup-cluster
 .PHONY: load-images
 load-images:
 	cd ../ && cat .goreleaser.yml \
-	  | PLATFORM="linux/$(shell uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')" \
+	  | PLATFORM="linux/$$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')" \
 	    yq '(.dockers_v2[].platforms) |= map(select(. == env(PLATFORM)))' \
 	  | goreleaser release -f - --clean --snapshot --skip=publish
 	ID=$$(docker image inspect --format='{{.ID}}' $(REGISTRY)website-operator:dev-amd64); \
