@@ -27,7 +27,10 @@ test: launch-kind load-images setup-cluster
 
 .PHONY: load-images
 load-images:
-	cd ../ && goreleaser release --clean --snapshot --skip=publish
+	cd ../ && cat .goreleaser.yml \
+	  | PLATFORM="linux/$(shell uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')" \
+	    yq '(.dockers_v2[].platforms) |= map(select(. == env(PLATFORM)))' \
+	  | goreleaser release -f - --clean --snapshot --skip=publish
 	ID=$$(docker image inspect --format='{{.ID}}' $(REGISTRY)website-operator:dev-amd64); \
 	if [ ! "$$(docker exec -it $(KIND_CLUSTER_NAME)-control-plane ctr --namespace=k8s.io images list | grep $$ID)" ]; then \
 		kind load docker-image --name=$(KIND_CLUSTER_NAME) $(REGISTRY)website-operator:dev-amd64; \
