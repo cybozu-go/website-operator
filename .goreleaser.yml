@@ -43,118 +43,68 @@ builds:
 before:
   hooks:
     - make frontend
-dockers:
-  - image_templates:
-      - "ghcr.io/cybozu-go/website-operator:{{ .Version }}-amd64"
-    use: buildx
+dockers_v2:
+  - id: website-operator
     dockerfile: ./Dockerfile
     ids:
       - website-operator
     extra_files:
       - LICENSE
-    build_flag_templates:
+    images:
+      - "ghcr.io/cybozu-go/website-operator"
+    tags:
+      - "{{ .Version }}"
+      - "{{ .Major }}.{{ .Minor }}"
+    platforms:
+      - linux/amd64
+      - linux/arm64
+    labels:
+      org.opencontainers.image.created: "{{ .Date }}"
+      org.opencontainers.image.revision: "{{ .FullCommit }}"
+      org.opencontainers.image.version: "{{ .Version }}"
+    flags:
       - "--target=website-operator"
-      - "--platform=linux/amd64"
-      - "--label=org.opencontainers.image.created={{.Date}}"
-      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
-      - "--label=org.opencontainers.image.version={{.Version}}"
-  - image_templates:
-      - "ghcr.io/cybozu-go/website-operator:{{ .Version }}-arm64"
-    use: buildx
-    dockerfile: ./Dockerfile
-    ids:
-      - website-operator
-    extra_files:
-      - LICENSE
-    build_flag_templates:
-      - "--target=website-operator"
-      - "--platform=linux/arm64"
-      - "--label=org.opencontainers.image.created={{.Date}}"
-      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
-      - "--label=org.opencontainers.image.version={{.Version}}"
-  - image_templates:
-      - "ghcr.io/cybozu-go/website-operator-ui:{{ .Version }}-amd64"
-    use: buildx
+  - id: website-operator-ui
     dockerfile: ./Dockerfile
     ids:
       - website-operator-ui
     extra_files:
       - LICENSE
       - ui/frontend/dist
-    build_flag_templates:
+    images:
+      - "ghcr.io/cybozu-go/website-operator-ui"
+    tags:
+      - "{{ .Version }}"
+      - "{{ .Major }}.{{ .Minor }}"
+    platforms:
+      - linux/amd64
+      - linux/arm64
+    labels:
+      org.opencontainers.image.created: "{{ .Date }}"
+      org.opencontainers.image.revision: "{{ .FullCommit }}"
+      org.opencontainers.image.version: "{{ .Version }}"
+    flags:
       - "--target=ui"
-      - "--platform=linux/amd64"
-      - "--label=org.opencontainers.image.created={{.Date}}"
-      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
-      - "--label=org.opencontainers.image.version={{.Version}}"
-  - image_templates:
-      - "ghcr.io/cybozu-go/website-operator-ui:{{ .Version }}-arm64"
-    use: buildx
-    dockerfile: ./Dockerfile
-    ids:
-      - website-operator-ui
-    extra_files:
-      - LICENSE
-      - ui/frontend/dist
-    build_flag_templates:
-      - "--target=ui"
-      - "--platform=linux/arm64"
-      - "--label=org.opencontainers.image.created={{.Date}}"
-      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
-      - "--label=org.opencontainers.image.version={{.Version}}"
-  - image_templates:
-    - "ghcr.io/cybozu-go/repo-checker:{{ .Version }}-amd64"
-    use: buildx
+  - id: repo-checker
     dockerfile: ./Dockerfile
     ids:
       - repo-checker
     extra_files:
       - LICENSE
-    build_flag_templates:
+    images:
+      - "ghcr.io/cybozu-go/repo-checker"
+    tags:
+      - "{{ .Version }}"
+      - "{{ .Major }}.{{ .Minor }}"
+    platforms:
+      - linux/amd64
+      - linux/arm64
+    labels:
+      org.opencontainers.image.created: "{{ .Date }}"
+      org.opencontainers.image.revision: "{{ .FullCommit }}"
+      org.opencontainers.image.version: "{{ .Version }}"
+    flags:
       - "--target=repo-checker"
-      - "--platform=linux/amd64"
-      - "--label=org.opencontainers.image.created={{.Date}}"
-      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
-      - "--label=org.opencontainers.image.version={{.Version}}"
-  - image_templates:
-      - "ghcr.io/cybozu-go/repo-checker:{{ .Version }}-arm64"
-    use: buildx
-    dockerfile: ./Dockerfile
-    ids:
-      - repo-checker
-    extra_files:
-      - LICENSE
-    build_flag_templates:
-      - "--target=repo-checker"
-      - "--platform=linux/arm64"
-      - "--label=org.opencontainers.image.created={{.Date}}"
-      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
-      - "--label=org.opencontainers.image.version={{.Version}}"
-docker_manifests:
-  - name_template: "ghcr.io/cybozu-go/website-operator:{{ .Version }}"
-    image_templates:
-      - "ghcr.io/cybozu-go/website-operator:{{ .Version }}-amd64"
-      - "ghcr.io/cybozu-go/website-operator:{{ .Version }}-arm64"
-  - name_template: "ghcr.io/cybozu-go/website-operator:{{ .Major }}.{{ .Minor }}"
-    image_templates:
-      - "ghcr.io/cybozu-go/website-operator:{{ .Version }}-amd64"
-      - "ghcr.io/cybozu-go/website-operator:{{ .Version }}-arm64"
-  - name_template: "ghcr.io/cybozu-go/website-operator-ui:{{ .Version }}"
-    image_templates:
-      - "ghcr.io/cybozu-go/website-operator-ui:{{ .Version }}-amd64"
-      - "ghcr.io/cybozu-go/website-operator-ui:{{ .Version }}-arm64"
-  - name_template: "ghcr.io/cybozu-go/website-operator-ui:{{ .Major }}.{{ .Minor }}"
-    image_templates:
-      - "ghcr.io/cybozu-go/website-operator-ui:{{ .Version }}-amd64"
-      - "ghcr.io/cybozu-go/website-operator-ui:{{ .Version }}-arm64"
-  - name_template: "ghcr.io/cybozu-go/repo-checker:{{ .Version }}"
-    image_templates:
-      - "ghcr.io/cybozu-go/repo-checker:{{ .Version }}-amd64"
-      - "ghcr.io/cybozu-go/repo-checker:{{ .Version }}-arm64"
-  - name_template: "ghcr.io/cybozu-go/repo-checker:{{ .Major }}.{{ .Minor }}"
-    image_templates:
-      - "ghcr.io/cybozu-go/repo-checker:{{ .Version }}-amd64"
-      - "ghcr.io/cybozu-go/repo-checker:{{ .Version }}-arm64"
 checksum:
   name_template: 'checksums.txt'
 snapshot:
