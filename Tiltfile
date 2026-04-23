@@ -1,19 +1,19 @@
 load('ext://restart_process', 'docker_build_with_restart')
 
-OPERATOR_DOCKERFILE = '''FROM golang:alpine
+OPERATOR_DOCKERFILE = '''FROM golang:alpine@sha256:f85330846cde1e57ca9ec309382da3b8e6ae3ab943d2739500e08c86393a21b1
 WORKDIR /
 COPY ./bin/website-operator /
 CMD ["/website-operator"]
 '''
 
-REPOCHECKER_DOCKERFILE = '''FROM golang:alpine
+REPOCHECKER_DOCKERFILE = '''FROM golang:alpine@sha256:f85330846cde1e57ca9ec309382da3b8e6ae3ab943d2739500e08c86393a21b1
 RUN apk update && apk add git
 WORKDIR /
 COPY ./bin/repo-checker /
 CMD ["/repo-checker"]
 '''
 
-UI_DOCKERFILE = '''FROM golang:alpine
+UI_DOCKERFILE = '''FROM golang:alpine@sha256:f85330846cde1e57ca9ec309382da3b8e6ae3ab943d2739500e08c86393a21b1
 WORKDIR /
 COPY ./ui/frontend/dist/* /dist/
 COPY ./bin/website-operator-ui /
