@@ -1,0 +1,184 @@
+{
+  "checksums": [
+    {
+      "id": "github_release/github.com/arttor/helmify/v0.4.19/helmify_Darwin_arm64.tar.gz",
+      "checksum": "4D5F8FC6BA0664AFE9A4420308D1EEF5BC583098828FC13C2F74F59229FB0590",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/arttor/helmify/v0.4.19/helmify_Darwin_x86_64.tar.gz",
+      "checksum": "DC66CAF0ACB993FAE227843236EB83AAFA88490B1CEF2AD51F98ECE6055DC547",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/arttor/helmify/v0.4.19/helmify_Linux_arm64.tar.gz",
+      "checksum": "3F9B05FC94ACBA967AA5178AF21BB27D00C93C8317BCAF8ABDEB1121907E7E9F",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/arttor/helmify/v0.4.19/helmify_Linux_x86_64.tar.gz",
+      "checksum": "6A8CFF23578D1274DBD94622F844FC2E83EE01B085F835EA69D487E144B60242",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/goreleaser/goreleaser/v2.14.3/goreleaser_Darwin_all.tar.gz",
+      "checksum": "3507798489E107A78AFF36B169DE48148A335AC26EB3161608D905F3F3A957BD",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/goreleaser/goreleaser/v2.14.3/goreleaser_Linux_arm64.tar.gz",
+      "checksum": "581A10E53C1176B3E81EE45CF531E02DBF899DB0BC7B795669347DF4276CE948",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/goreleaser/goreleaser/v2.14.3/goreleaser_Linux_x86_64.tar.gz",
+      "checksum": "DC7FAEEEB6DA8BDFDA788626263A4AE725892A8C7504B975C3234127D4A44579",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/kubernetes-sigs/kind/v0.31.0/kind-darwin-amd64",
+      "checksum": "A8B3CF77B2AD77AEC5BF710D1A2589D9117576132AF812885CAD41E9DEDE4D4E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/kubernetes-sigs/kind/v0.31.0/kind-darwin-arm64",
+      "checksum": "88BF554FE9DA6311C9F8C2D082613C002911A476F6B5090E9420B35D84E70C5C",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/kubernetes-sigs/kind/v0.31.0/kind-linux-amd64",
+      "checksum": "EB244CBAFCC157DFF60CF68693C14C9A75C4E6E6FEDAF9CD71C58117CB93E3FA",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/kubernetes-sigs/kind/v0.31.0/kind-linux-arm64",
+      "checksum": "8E1014E87C34901CC422A1445866835D1E666F2A61301C27E722BDEAB5A1F7E4",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/kubernetes-sigs/kubebuilder/v4.13.1/kubebuilder_darwin_amd64",
+      "checksum": "50184AA2AD228C71C1C0A103FD49BE58F7BBC0EFA58F4B085660A38B2A949B42",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/kubernetes-sigs/kubebuilder/v4.13.1/kubebuilder_darwin_arm64",
+      "checksum": "D6D775500643BD10F3B718D30C54615B2A01BF426535053F462CC8AA4AFD211D",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/kubernetes-sigs/kubebuilder/v4.13.1/kubebuilder_linux_amd64",
+      "checksum": "C91A214F3CADA120CD7468EE4633621DA963E997CF19A1CF320EBD36E6324FD6",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/kubernetes-sigs/kubebuilder/v4.13.1/kubebuilder_linux_arm64",
+      "checksum": "7D39D8C2ED3F0BDE122B5BA4EE5106D07DA3A920B6865A8BE4A56E689F8A0A56",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/kubernetes-sigs/kustomize/kustomize/v5.8.1/kustomize_v5.8.1_darwin_amd64.tar.gz",
+      "checksum": "EE7CF0C1E3592AA7BB66BA82B359933A95E7F2E0B36E5F53ED0A4535B017F2F8",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/kubernetes-sigs/kustomize/kustomize/v5.8.1/kustomize_v5.8.1_darwin_arm64.tar.gz",
+      "checksum": "8886F8A78474E608CC81234F729FDA188A9767DA23E28925802F00ECE2BAB288",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/kubernetes-sigs/kustomize/kustomize/v5.8.1/kustomize_v5.8.1_linux_amd64.tar.gz",
+      "checksum": "029A7F0F4E1932C52A0476CF02A0FD855C0BB85694B82C338FC648DCB53A819D",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/kubernetes-sigs/kustomize/kustomize/v5.8.1/kustomize_v5.8.1_linux_arm64.tar.gz",
+      "checksum": "0953EA3E476F66D6DDFCD911D750F5167B9365AA9491B2326398E289FEF2C142",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/mikefarah/yq/v4.52.5/yq_darwin_amd64",
+      "checksum": "6E399D1EB466860C3202D231727197FDCE055888C5C7BEC6964156983DD1559D",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/mikefarah/yq/v4.52.5/yq_darwin_arm64",
+      "checksum": "45A12E64D4BD8A31C72EE1B889E81F1B1110E801BAAD3D6F030C111DB0068DE0",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/mikefarah/yq/v4.52.5/yq_linux_amd64",
+      "checksum": "75D893A0D5940D1019CB7CDC60001D9E876623852C31CFC6267047BC31149FA9",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/mikefarah/yq/v4.52.5/yq_linux_arm64",
+      "checksum": "90FA510C50EE8CA75544DBFFFED10C88ED59B36834DF35916520CDDC623D9AAA",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tilt-dev/ctlptl/v0.9.0/ctlptl.0.9.0.linux.arm64.tar.gz",
+      "checksum": "77813732235DF15BB1749EB09B128AAD439D43E1998756C62DC159535A3032DA",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tilt-dev/ctlptl/v0.9.0/ctlptl.0.9.0.linux.x86_64.tar.gz",
+      "checksum": "7A61CA793EB09AE573D94B0AAC37FB2D6271516973020B3BEDD6DD936788F6D2",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tilt-dev/ctlptl/v0.9.0/ctlptl.0.9.0.mac.arm64.tar.gz",
+      "checksum": "FE63E244A6398A3E34791735EFE15AE0EA3FDD681252CE24590045ED91023543",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tilt-dev/ctlptl/v0.9.0/ctlptl.0.9.0.mac.x86_64.tar.gz",
+      "checksum": "0765A2089FEC4B1319ACBB801515A71AC1DE651EF3945AA22FD4947FB8F0A19C",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tilt-dev/tilt/v0.37.0/tilt.0.37.0.linux.arm64.tar.gz",
+      "checksum": "84457137539D8E4BE6E90E9AFECF8EF692AD3F8C19E9BF3355F3FBF4F8DCE55F",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tilt-dev/tilt/v0.37.0/tilt.0.37.0.linux.x86_64.tar.gz",
+      "checksum": "C2C7D3649233F01BC5D230B66B8CCD332401F348DC22B863FCF7244DA6970FF1",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tilt-dev/tilt/v0.37.0/tilt.0.37.0.mac.arm64.tar.gz",
+      "checksum": "5AF70D3AB374ADEAFFE3FB8B0D7F1695A880DC2A02A4C2BCCF20223B153929E8",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tilt-dev/tilt/v0.37.0/tilt.0.37.0.mac.x86_64.tar.gz",
+      "checksum": "01C5E53921345ED4FEB3BA6BC9585F8F5563E40BEA27DAE0384620D5BBC2EBEA",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/dl.k8s.io/v1.34.3/bin/darwin/amd64/kubectl",
+      "checksum": "657AFBD0E653C4CE3AF1B5A645A4EABA282CF8EB2BCDA7191FF60866E50E4D7F",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/dl.k8s.io/v1.34.3/bin/darwin/arm64/kubectl",
+      "checksum": "E51367D2107D605F4EDD7C2FB25897B0C0695A7DE1A9F9D04CD6C9356B890B14",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/dl.k8s.io/v1.34.3/bin/linux/amd64/kubectl",
+      "checksum": "AB60CA5F0FD60C1EB81B52909E67060E3BA0BD27E55A8AC147CBC2172FF14212",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/dl.k8s.io/v1.34.3/bin/linux/arm64/kubectl",
+      "checksum": "46913A7AA0327F6CC2E1CC2775D53C4A2AF5E52F7FD8DACBFBFD098E757F19E9",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.444.0/registry.yaml",
+      "checksum": "233DEDF66E1BC5370EA057FEBC741A86D6C9FB0AF132E1535E06A2C0416920B8",
+      "algorithm": "sha256"
+    }
+  ]
+}
