@@ -2,8 +2,6 @@ SHELL := /bin/bash
 TAG ?= latest
 CRD_OPTIONS = "crd:crdVersions=v1"
 
-BIN_DIR := $(shell pwd)/bin
-
 WEBSITE_OPERATOR = bin/website-operator
 REPO_CHECKER = bin/repo-checker
 WEBSITE_OPERATOR_UI = bin/website-operator-ui
@@ -93,11 +91,10 @@ frontend:
 .PHONY: setup
 setup: setup-envtest
 
-SETUP_ENVTEST := $(BIN_DIR)/setup-envtest
+SETUP_ENVTEST := aqua exec -- setup-envtest
 .PHONY: setup-envtest
 setup-envtest: ## Download setup-envtest locally if necessary
-	# see https://github.com/kubernetes-sigs/controller-runtime/tree/master/tools/setup-envtest
-	GOBIN=$(BIN_DIR) go install sigs.k8s.io/controller-runtime/tools/setup-envtest@latest
+	aqua i
 
 .PHONY: clean
 clean:
