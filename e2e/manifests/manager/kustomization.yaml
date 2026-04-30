@@ -4,7 +4,7 @@ namespace: website-operator-system
 resources:
   - ../../../config/default
   - rbac.yaml
-patchesStrategicMerge:
+patches:
   - manager.yaml
   - ui.yaml
 generatorOptions:
@@ -14,7 +14,6 @@ configMapGenerator:
     files:
       - build-honkit.sh
       - build-mkdocs.sh
-      - build-gatsby.sh
   - name: httpproxy
     files:
       - httpproxy.tmpl
