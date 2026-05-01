@@ -8,7 +8,6 @@ git checkout $REVISION
 sed -i -e "/host/c\      \"host\": \"http://${RESOURCE_NAME}.${RESOURCE_NAMESPACE}.example.com/es\"," book.js
 sed -i -e "/index/c\      \"index\": \"${RESOURCE_NAME}-${REVISION}\"," book.js
 
-pnpm install --lockfile-only
 pnpm install --frozen-lockfile
 pnpm run build
 

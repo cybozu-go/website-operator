@@ -100,7 +100,7 @@ cd $HOME
 git clone $REPO_URL
 cd $REPO_NAME
 git checkout $REVISION
-pnpm install --lockfile-only && pnpm install --frozen-lockfile && pnpm run build
+pnpm install --frozen-lockfile && pnpm run build
 cp -r _book/* $OUTPUT/
 `
 			bsCm := &corev1.ConfigMap{}
