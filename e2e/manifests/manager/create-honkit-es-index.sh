@@ -8,8 +8,8 @@ git checkout $REVISION
 sed -i -e "/host/c\      \"host\": \"http://${RESOURCE_NAME}.${RESOURCE_NAMESPACE}.example.com/es\"," book.js
 sed -i -e "/index/c\      \"index\": \"${RESOURCE_NAME}-${REVISION}\"," book.js
 
-npm install
-npm run build
+pnpm install --frozen-lockfile
+pnpm run build
 
 curl -X DELETE ${ELASTIC_HOST}/${RESOURCE_NAME}-${REVISION}
 curl -X PUT ${ELASTIC_HOST}/${RESOURCE_NAME}-${REVISION} -H 'Content-Type: application/json' -d @mappings.json

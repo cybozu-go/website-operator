@@ -86,7 +86,7 @@ $(WEBSITE_OPERATOR_UI): $(GO_FILES)
 
 .PHONY: frontend
 frontend:
-	cd ui/frontend && pnpm install && pnpm run build
+	cd ui/frontend && pnpm install --frozen-lockfile && pnpm run build
 
 .PHONY: setup
 setup: setup-envtest
