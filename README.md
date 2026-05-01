@@ -26,7 +26,6 @@ First, you need to prepare a repository of the content you want to deploy.
 Here's some examples:
 
 - [https://github.com/neco-test/honkit-sample](https://github.com/neco-test/honkit-sample)
-- [https://github.com/gatsbyjs/gatsby-starter-default](https://github.com/gatsbyjs/gatsby-starter-default)
 
 To deploy a site to a Kubernetes cluster you can use the following CustomResource:
 
