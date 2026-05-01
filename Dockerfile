@@ -1,4 +1,4 @@
-FROM ghcr.io/zoetrope/ubuntu:22.04 as base
+FROM ghcr.io/zoetrope/ubuntu:22.04@sha256:399e56354efe531e98f618966249767814d0d4ee6260bb4cf4086a0b45531979 as base
 
 LABEL org.opencontainers.image.source=https://github.com/zoetrope/website-operator
 
