@@ -5,8 +5,8 @@ resources:
   - ../../../config/default
   - rbac.yaml
 patches:
-  - manager.yaml
-  - ui.yaml
+  - path: manager.yaml
+  - path: ui.yaml
 generatorOptions:
   disableNameSuffixHash: true
 configMapGenerator:
