@@ -77,8 +77,4 @@ func testBootstrap() {
 	It("should launch mkdocs-sample", func() {
 		testWebSite("mkdocs-sample")
 	})
-
-	It("should launch gatsby-sample", func() {
-		testWebSite("gatsby-sample")
-	})
 }

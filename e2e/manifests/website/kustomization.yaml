@@ -5,7 +5,6 @@ resources:
   - honkit.yaml
   - pvc.yaml
   - mkdocs.yaml
-  - gatsby.yaml
 generatorOptions:
   disableNameSuffixHash: true
 secretGenerator:
