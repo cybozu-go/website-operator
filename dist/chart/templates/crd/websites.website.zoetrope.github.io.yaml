@@ -1,8 +1,11 @@
----
+{{- if .Values.crd.enable }}
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+    {{- if .Values.crd.keep }}
+    "helm.sh/resource-policy": keep
+    {{- end }}
     controller-gen.kubebuilder.io/version: v0.20.1
   name: websites.website.zoetrope.github.io
 spec:
@@ -2160,3 +2163,4 @@ spec:
     storage: true
     subresources:
       status: {}
+{{- end }}

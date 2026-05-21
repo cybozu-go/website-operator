@@ -1,0 +1,42 @@
+apiVersion: rbac.authorization.k8s.io/v1
+{{- if .Values.rbac.namespaced }}
+kind: Role
+{{- else }}
+kind: ClusterRole
+{{- end }}
+metadata:
+{{- if .Values.rbac.namespaced }}
+  namespace: {{ .Release.Namespace }}
+{{- end }}
+  creationTimestamp: null
+  name: {{ include "website-operator.resourceName" (dict "suffix" "ui-role" "context" $) }}
+rules:
+- apiGroups:
+  - website.zoetrope.github.io
+  resources:
+  - websites
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - website.zoetrope.github.io
+  resources:
+  - websites/status
+  verbs:
+  - get
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - pods/log
+  verbs:
+  - get
+  - list
