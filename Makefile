@@ -1,5 +1,6 @@
 SHELL := /bin/bash
 TAG ?= latest
+IMG ?= controller:latest
 CRD_OPTIONS = "crd:crdVersions=v1"
 
 WEBSITE_OPERATOR = bin/website-operator
@@ -75,6 +76,14 @@ stop-dev:
 	ctlptl delete -f ./cluster.yaml
 
 ##@ Build
+
+.PHONY: docker-build
+docker-build: ## Build docker image with the manager.
+	mkdir -p linux/$(GOARCH)
+	CGO_ENABLED=0 GOOS=linux go build -o linux/$(GOARCH)/website-operator ./cmd/website-operator
+	CGO_ENABLED=0 GOOS=linux go build -o linux/$(GOARCH)/repo-checker ./cmd/repo-checker
+	CGO_ENABLED=0 GOOS=linux go build -o linux/$(GOARCH)/website-operator-ui ./cmd/website-operator-ui
+	docker build --build-arg TARGETPLATFORM=linux/$(GOARCH) --target website-operator -t ${IMG} .
 
 $(WEBSITE_OPERATOR): $(GO_FILES) generate
 	mkdir -p bin
