@@ -196,6 +196,26 @@
       "algorithm": "sha256"
     },
     {
+      "id": "http/get.helm.sh/helm-v3.15.0-darwin-amd64.tar.gz",
+      "checksum": "CCAEE03AF72E5DC168AE9B9E3267E2B461B0EBB7A77849048F4567286158777D",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/get.helm.sh/helm-v3.15.0-darwin-arm64.tar.gz",
+      "checksum": "020DF10FD29B0791F39AA5719D2926A995F78C1A2A7487923CA26485A0565909",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/get.helm.sh/helm-v3.15.0-linux-amd64.tar.gz",
+      "checksum": "A74747AC40777B86D3FF6F1BE201504BBA65CA46CD68B5FE25D3C394D0DCF745",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/get.helm.sh/helm-v3.15.0-linux-arm64.tar.gz",
+      "checksum": "C3B0281FCA4C030548211DD6E9B032EE0A9FC53EAB614F6ACBAFF631682CE808",
+      "algorithm": "sha256"
+    },
+    {
       "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.444.0/registry.yaml",
       "checksum": "233DEDF66E1BC5370EA057FEBC741A86D6C9FB0AF132E1535E06A2C0416920B8",
       "algorithm": "sha256"
