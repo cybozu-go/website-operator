@@ -122,7 +122,7 @@ HELM_NAMESPACE ?= website-operator-system
 ## Name of the Helm release
 HELM_RELEASE ?= website-operator
 ## Path to the Helm chart directory
-HELM_CHART_DIR ?= dist/chart
+HELM_CHART_DIR ?= charts/website-operator
 ## Additional arguments to pass to helm commands
 HELM_EXTRA_ARGS ?=
 
