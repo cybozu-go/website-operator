@@ -2,6 +2,7 @@ controller:
   image:
     repository: ghcr.io/cybozu-go/website-operator
     tag: app-version-placeholder
+    pullPolicy: IfNotPresent
   replicas: 1
   config:
     health:
@@ -15,6 +16,7 @@ ui:
   image:
     repository: ghcr.io/cybozu-go/website-operator-ui
     tag: app-version-placeholder
+    pullPolicy: IfNotPresent
   replicas: 1
   service:
     ports:
