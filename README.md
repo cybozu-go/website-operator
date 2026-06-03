@@ -301,6 +301,14 @@ $ cd /path/to/website-operator
 $ aqua i -l
 ```
 
+### Update pinned GitHub Actions
+
+This repository uses [pinact](https://github.com/suzuki-shunsuke/pinact) to update and verify pinned GitHub Actions.
+
+```shell
+$ GITHUB_TOKEN="$(gh auth token)" pinact run --update --min-age 14
+```
+
 You can start development with tilt.
 
 ```shell
