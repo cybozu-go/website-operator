@@ -46,6 +46,7 @@ RUN apt-get update \
         # necessary for plantuml
         default-jre \
         graphviz \
+        jq \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
