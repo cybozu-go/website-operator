@@ -136,6 +136,26 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/tilt-dev/ctlptl/v0.9.0/ctlptl.0.9.0.linux.arm64.tar.gz",
+      "checksum": "77813732235DF15BB1749EB09B128AAD439D43E1998756C62DC159535A3032DA",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tilt-dev/ctlptl/v0.9.0/ctlptl.0.9.0.linux.x86_64.tar.gz",
+      "checksum": "7A61CA793EB09AE573D94B0AAC37FB2D6271516973020B3BEDD6DD936788F6D2",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tilt-dev/ctlptl/v0.9.0/ctlptl.0.9.0.mac.arm64.tar.gz",
+      "checksum": "FE63E244A6398A3E34791735EFE15AE0EA3FDD681252CE24590045ED91023543",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tilt-dev/ctlptl/v0.9.0/ctlptl.0.9.0.mac.x86_64.tar.gz",
+      "checksum": "0765A2089FEC4B1319ACBB801515A71AC1DE651EF3945AA22FD4947FB8F0A19C",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/tilt-dev/ctlptl/v0.9.3/ctlptl.0.9.3.linux.arm64.tar.gz",
       "checksum": "0361E76D6BDF55B58D8F8A6115D5FEC5F74D0E375CAC35FDEF4CBD8B49C541A1",
       "algorithm": "sha256"
