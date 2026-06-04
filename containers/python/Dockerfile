@@ -12,6 +12,7 @@ RUN apt-get update \
      python3-venv \
      git \
      openssh-client \
+     jq \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
