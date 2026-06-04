@@ -14,12 +14,12 @@ packages:
   - name: arttor/helmify@v0.4.20
   - name: goreleaser/goreleaser@v2.16.0
   - name: suzuki-shunsuke/pinact@v4.0.0
-  - name: kubernetes-sigs/controller-runtime/setup-envtest@v0.22.4
-  - name: kubernetes-sigs/controller-tools/controller-gen@v0.19.0
+  - name: kubernetes-sigs/controller-runtime/setup-envtest@v0.23.3
+  - name: kubernetes-sigs/controller-tools/controller-gen@v0.20.1
   - name: kubernetes-sigs/kind@v0.31.0
-  - name: kubernetes-sigs/kubebuilder@v4.13.1
+  - name: kubernetes-sigs/kubebuilder@v4.14.0
   - name: kubernetes-sigs/kustomize@kustomize/v5.8.1
-  - name: kubernetes/kubectl@v1.34.3
+  - name: kubernetes/kubectl@v1.35.5
   - name: mikefarah/yq@v4.53.2
   - name: tilt-dev/ctlptl@v0.9.3
   - name: tilt-dev/tilt@v0.37.3
