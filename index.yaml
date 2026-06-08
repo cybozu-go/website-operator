@@ -2,6 +2,17 @@ apiVersion: v1
 entries:
   website-operator:
   - apiVersion: v2
+    appVersion: 0.11.3
+    created: "2026-06-08T05:41:26.960773393Z"
+    description: Helm chart for Website Operator
+    digest: 432f44182103bb2babbb4dea73d9c4fed1d55f8f1be0c94bf20817a4b256cb7a
+    home: https://github.com/cybozu-go/website-operator
+    name: website-operator
+    type: application
+    urls:
+    - https://github.com/cybozu-go/website-operator/releases/download/website-operator-chart-0.3.9/website-operator-0.3.9.tgz
+    version: 0.3.9
+  - apiVersion: v2
     appVersion: 0.11.2
     created: "2026-06-02T06:17:08.278093413Z"
     description: Helm chart for Website Operator
@@ -193,4 +204,4 @@ entries:
     urls:
     - https://github.com/zoetrope/website-operator/releases/download/website-operator-chart-0.1.0/website-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2026-06-02T06:17:08.278202894Z"
+generated: "2026-06-08T05:41:26.960883497Z"
