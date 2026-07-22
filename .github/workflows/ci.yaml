@@ -76,7 +76,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image:
+        image: &images
           - ubuntu
           - nginx
           - node
@@ -142,6 +142,45 @@ jobs:
     permissions: {}
     steps:
       - run: echo ok
+  scan-images:
+    name: Scan images
+    needs: wait-for-build-images
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: read
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        image: *images
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: ./.github/actions/setup-cosign
+      - uses: ./.github/actions/setup-trivy
+      - uses: ./.github/actions/setup-yamory-scripts
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@650006c6eb7dba73a995cc03b0b2d7f5ca915bee # v4.2.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Scan images
+        env:
+          YAMORY_ACCESS_TOKEN: ${{ secrets.YAMORY_ACCESS_TOKEN }}
+          REPO_OWNER: ${{ github.repository_owner }}
+          IMAGE: website-operator-${{ matrix.image }}
+        run: |
+          TAG=$(cat ./containers/${IMAGE}/TAG)
+          if [ -z "$TAG" ]; then
+            echo "TAG file is empty or not found"
+            exit 1
+          fi
+          echo "scanning ${IMAGE}:${TAG} ..."
+          export YAMORY_IMAGE_NAME="ghcr.io/${REPO_OWNER}/${IMAGE}}:${TAG}"
+          export YAMORY_IMAGE_IDENTIFIER="ghcr.io/${REPO_OWNER}/${IMAGE}"
+          yamory-image-scan
   check-goreleaser-config:
     name: Check goreleaser.yml
     runs-on: ubuntu-24.04
