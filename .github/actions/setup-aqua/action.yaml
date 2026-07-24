@@ -12,7 +12,7 @@ runs:
   steps:
     - name: Restore aqua caches (restoring cache only)
       if: ${{ inputs.save-cache == 'false' }}
-      uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: ~/.local/share/aquaproj-aqua
         key: v1-aqua-installer-${{runner.os}}-${{runner.arch}}-${{hashFiles('aqua.yaml')}}
@@ -20,13 +20,13 @@ runs:
           v1-aqua-installer-${{runner.os}}-${{runner.arch}}-
     - name: Restore aqua caches (saving cache is enabled)
       if: ${{ inputs.save-cache != 'false' }}
-      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: ~/.local/share/aquaproj-aqua
         key: v1-aqua-installer-${{runner.os}}-${{runner.arch}}-${{hashFiles('aqua.yaml')}}
         restore-keys: |
           v1-aqua-installer-${{runner.os}}-${{runner.arch}}
-    - uses: aquaproj/aqua-installer@11dd79b4e498d471a9385aa9fb7f62bb5f52a73c # v4.0.4
+    - uses: aquaproj/aqua-installer@96a9bc20066c5bf5e275b41019cfc165b25f4e2e # v4.0.5
       with:
         aqua_version: v2.59.0 # renovate: aquaproj/aqua
         aqua_opts: ${{ case(inputs.save-cache != 'false', '', '-l')}}
