@@ -170,16 +170,16 @@ jobs:
         env:
           YAMORY_ACCESS_TOKEN: ${{ secrets.YAMORY_ACCESS_TOKEN }}
           REPO_OWNER: ${{ github.repository_owner }}
-          IMAGE: website-operator-${{ matrix.image }}
+          IMAGE: ${{ matrix.image }}
         run: |
           TAG=$(cat ./containers/${IMAGE}/TAG)
           if [ -z "$TAG" ]; then
             echo "TAG file is empty or not found"
             exit 1
           fi
-          echo "scanning ${IMAGE}:${TAG} ..."
-          export YAMORY_IMAGE_NAME="ghcr.io/${REPO_OWNER}/${IMAGE}:${TAG}"
-          export YAMORY_IMAGE_IDENTIFIER="ghcr.io/${REPO_OWNER}/${IMAGE}"
+          echo "scanning website-operator-${IMAGE}:${TAG} ..."
+          export YAMORY_IMAGE_NAME="ghcr.io/${REPO_OWNER}/website-operator-${IMAGE}:${TAG}"
+          export YAMORY_IMAGE_IDENTIFIER="ghcr.io/${REPO_OWNER}/website-operator-${IMAGE}"
           yamory-image-scan
   check-goreleaser-config:
     name: Check goreleaser.yml
