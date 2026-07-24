@@ -178,7 +178,7 @@ jobs:
             exit 1
           fi
           echo "scanning ${IMAGE}:${TAG} ..."
-          export YAMORY_IMAGE_NAME="ghcr.io/${REPO_OWNER}/${IMAGE}}:${TAG}"
+          export YAMORY_IMAGE_NAME="ghcr.io/${REPO_OWNER}/${IMAGE}:${TAG}"
           export YAMORY_IMAGE_IDENTIFIER="ghcr.io/${REPO_OWNER}/${IMAGE}"
           yamory-image-scan
   check-goreleaser-config:
