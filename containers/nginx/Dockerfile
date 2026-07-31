@@ -3,7 +3,7 @@ FROM ghcr.io/cybozu/ubuntu:${BASE_TAG}
 
 LABEL org.opencontainers.image.source=https://github.com/cybozu-go/website-operator
 
-ARG NGINX_VERSION=1.30.2-1
+ARG NGINX_VERSION=1.30.4-1
 
 COPY apt_pref /etc/apt/preferences.d/99nginx
 
