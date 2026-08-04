@@ -3,14 +3,14 @@ FROM ghcr.io/cybozu/ubuntu:${BASE_TAG}
 
 LABEL org.opencontainers.image.source=https://github.com/cybozu-go/website-operator
 
-ARG NGINX_VERSION=1.30.2-1
+ARG NGINX_VERSION=1.30.4-1
 
 COPY apt_pref /etc/apt/preferences.d/99nginx
 
 RUN UBUNTU_CODENAME=$(. /etc/os-release && echo "$UBUNTU_CODENAME") \
  && curl -sS https://nginx.org/keys/nginx_signing.key \
    | tee /usr/share/keyrings/nginx-archive-keyring.asc >/dev/null \
- && echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.asc] http://nginx.org/packages/ubuntu ${UBUNTU_CODENAME} nginx" \
+ && echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.asc] https://nginx.org/packages/ubuntu ${UBUNTU_CODENAME} nginx" \
    | tee /etc/apt/sources.list.d/nginx.list \
  && apt-get update \
  && apt-get install --no-install-recommends -y \
