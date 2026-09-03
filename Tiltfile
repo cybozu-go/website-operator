@@ -44,7 +44,7 @@ repochecker_deps = ['checker', 'cmd/repo-checker', 'version.go', 'constants.go']
 local_resource('Watch&Compile repo-checker', "make bin/repo-checker", deps=repochecker_deps)
 
 ui_deps = ['ui', 'cmd/website-operator-ui', 'version.go', 'constants.go']
-local_resource('Watch&Compile website-operator-ui', "make frontend; make bin/website-operator-ui", deps=ui_deps, ignore=['ui/frontend/node_modules', 'ui/frontend/dist', 'ui/frontend/.parcel-cache', 'ui/frontend/package*'])
+local_resource('Watch&Compile website-operator-ui', "make frontend; make bin/website-operator-ui", deps=ui_deps, ignore=['ui/frontend/node_modules', 'ui/frontend/dist', 'ui/frontend/package*'])
 
 local_resource('Sample YAML', 'kubectl apply -f ./config/samples', deps=["./config/samples"], resource_deps=[DIRNAME + "-controller-manager"])
 

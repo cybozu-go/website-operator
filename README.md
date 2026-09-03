@@ -287,6 +287,31 @@ Web UI provides view of status and build log.
 
 ![Web UI](./screenshot.png)
 
+### Developing the Web UI
+
+The frontend (`ui/frontend`) is a static app built without a bundler.
+`ui/frontend/build.mjs` compiles `src/app.css` with Tailwind CSS via
+`@tailwindcss/postcss`, then copies `src/index.html`, `src/app.js` and
+Alpine.js' prebuilt script into `dist/`. No dependency requires an install
+script, so `pnpm install` needs no build-script approvals.
+
+Node.js and [pnpm](https://pnpm.io) are required.
+
+```shell
+$ make frontend
+```
+
+To preview it, serve `ui/frontend/dist` with the UI backend. It reads the
+cluster in your current kubeconfig context.
+
+```shell
+$ go run ./cmd/website-operator-ui --content-dir ./ui/frontend/dist
+```
+
+Then open http://localhost:8080. The API is served from the same origin at
+`/api/v1`, so no CORS configuration is needed. Re-run `make frontend` after
+editing anything under `ui/frontend/src`, then reload the browser.
+
 ## How to development
 
 The tools for developing website-operator are managed by [aqua](https://aquaproj.github.io).

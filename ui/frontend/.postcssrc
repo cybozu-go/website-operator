@@ -1,7 +1,0 @@
-{
-  "plugins": {
-    "postcss-import": true,
-    "@tailwindcss/postcss": true,
-    "postcss-nested": true
-  }
-}
