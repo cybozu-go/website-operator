@@ -9,14 +9,14 @@ importers:
   ui/frontend:
     dependencies:
       alpinejs:
-        specifier: 3.15.2
-        version: 3.15.2
+        specifier: 3.16.2
+        version: 3.16.2
     devDependencies:
       '@tailwindcss/postcss':
         specifier: 4.3.3
         version: 4.3.3
       postcss:
-        specifier: ^8.5.5
+        specifier: 8.5.26
         version: 8.5.26
       tailwindcss:
         specifier: 4.3.3
@@ -136,14 +136,14 @@ packages:
   '@tailwindcss/postcss@4.3.3':
     resolution: {integrity: sha512-JTSZZGQi1AyKirbLN3azmjVzef92tcX7h+iSqPdaeStyFpGpDlKvvpxeOE8njhbUanbRwr3z8DyzhICWnMtQeg==}
 
-  '@vue/reactivity@3.1.5':
-    resolution: {integrity: sha512-1tdfLmNjWG6t/CsPldh+foumYFo3cpyCHgBYQ34ylaMsJ+SNHQ1kApMIa8jN+i593zQuaw3AdWH0nJTARzCFhg==}
+  '@vue/reactivity@3.5.41':
+    resolution: {integrity: sha512-rznsqKM0np0x18EjzF8x88MpEhdNsffbvFbckLL5+oUKz1BxAImEmO7J1ArRYSyo6aQaVoBDp7jEkT91OOxydA==}
 
-  '@vue/shared@3.1.5':
-    resolution: {integrity: sha512-oJ4F3TnvpXaQwZJNF3ZK+kLPHKarDmJjJ6jyzVNDKH9md1dptjC7lWR//jrGuLdek/U6iltWxqAnYOu8gCiOvA==}
+  '@vue/shared@3.5.41':
+    resolution: {integrity: sha512-IOnwSCma8j+9xJT6b8H0dEYidC80NsYmNMlZxRsukYcSoGaDBohog5hDxzeUXdFeGWFA++vWvxqOmrr96VlqMA==}
 
-  alpinejs@3.15.2:
-    resolution: {integrity: sha512-2kYF2aG+DTFkE6p0rHG5XmN4VEb6sO9b02aOdU4+i8QN6rL0DbRZQiypDE1gBcGO65yDcqMz5KKYUYgMUxgNkw==}
+  alpinejs@3.16.2:
+    resolution: {integrity: sha512-6kbqqrRK7iGPYx5upTfqc8Tcl1xhpcurLCxTdn4/ym2Kb68+cYj+2I5Zji53vUIPf7zj3C1DoIvrDkgrNDCXdA==}
 
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
@@ -352,15 +352,15 @@ snapshots:
       postcss: 8.5.26
       tailwindcss: 4.3.3
 
-  '@vue/reactivity@3.1.5':
+  '@vue/reactivity@3.5.41':
     dependencies:
-      '@vue/shared': 3.1.5
+      '@vue/shared': 3.5.41
 
-  '@vue/shared@3.1.5': {}
+  '@vue/shared@3.5.41': {}
 
-  alpinejs@3.15.2:
+  alpinejs@3.16.2:
     dependencies:
-      '@vue/reactivity': 3.1.5
+      '@vue/reactivity': 3.5.41
 
   detect-libc@2.1.2: {}
 
