@@ -1,26 +1,26 @@
-ARG NODE_VERSION=24.18.1
-ARG PNPM_VERSION=v10.34.5
+ARG NODE_VERSION=24.20.0
+ARG PNPM_VERSION=v11.25.0
 ARG BASE_TAG=24.04
 
 FROM scratch AS node-amd64
 ARG NODE_VERSION
-ADD --checksum=sha256:9f5eb6ac21845a66c493c91a253b1da32fd684e89e9b7202d4936982336be4ca \
+ADD --checksum=sha256:855d581f8a4eb1a8117e3426de25fe02770592febcfb31369aee1ffbfee9e8ec \
     https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz /node.tar.gz
 
 FROM scratch AS node-arm64
 ARG NODE_VERSION
-ADD --checksum=sha256:df224555a083b918e46260cc969838501b9f9a87140c1195e5b9597b56d5dae2 \
+ADD --checksum=sha256:3515603e2487879a39bc75716f1a2affd027500c64ba50e845cf72cb33219013 \
     https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-arm64.tar.gz /node.tar.gz
 
 FROM scratch AS pnpm-amd64
 ARG PNPM_VERSION
-ADD --checksum=sha256:69a535476f407fb0f64427913c2b592ca2ed6bf93f92e2cb82a32349e31f36eb \
-    https://github.com/pnpm/pnpm/releases/download/${PNPM_VERSION}/pnpm-linux-x64 /pnpm
+ADD --checksum=sha256:11caeed8b581d460638f836f10f6ead19cbf08d774a5b8e502628b20ebf3ac43 \
+    https://github.com/pnpm/pnpm/releases/download/${PNPM_VERSION}/pnpm-linux-x64.tar.gz /pnpm.tar.gz
 
 FROM scratch AS pnpm-arm64
 ARG PNPM_VERSION
-ADD --checksum=sha256:22391362c31edf522fd698d0b43d38fe9228e28d5b5e32124ffd0038fb60f9f0 \
-    https://github.com/pnpm/pnpm/releases/download/${PNPM_VERSION}/pnpm-linux-arm64 /pnpm
+ADD --checksum=sha256:6d62b433b7a77b77e814dfaca8032bae57bb79c1a5ad50442e688c4f7fed3c8a \
+    https://github.com/pnpm/pnpm/releases/download/${PNPM_VERSION}/pnpm-linux-arm64.tar.gz /pnpm.tar.gz
 
 # Select the right download stage based on the target architecture
 FROM node-${TARGETARCH} AS node-download
@@ -47,11 +47,19 @@ RUN apt-get update \
         default-jre \
         graphviz \
         jq \
+        # necessary for pnpm
+        libatomic1 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
-RUN --mount=type=bind,from=pnpm-download,source=/pnpm,target=/tmp/pnpm \
-    install -m 0755 /tmp/pnpm /usr/local/bin/pnpm \
- && pnpm config set -g minimumReleaseAge 1440
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME/bin:$PATH"
+
+RUN --mount=type=bind,from=pnpm-download,source=/pnpm.tar.gz,target=/tmp/pnpm.tar.gz \
+    mkdir -p /opt/pnpm \
+ && tar xf /tmp/pnpm.tar.gz -C /opt/pnpm \
+ && ln -sf /opt/pnpm/pnpm /usr/local/bin/pnpm \
+ && pnpm config set -g minimumReleaseAge 1440 \
+ && chown -R 1000:1000 "$PNPM_HOME"
 
 USER 1000:1000
