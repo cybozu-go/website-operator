@@ -34,9 +34,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: ./.github/actions/setup-go
-        with:
-          bot-id: ${{ vars.TAKUMI_GUARD_BOT_ID }}
+      - uses: ./.github/actions/setup-go-with-takumi-guard
       - uses: ./.github/actions/setup-aqua
       - name: Set previous release tag for GoReleaser
         run: |
