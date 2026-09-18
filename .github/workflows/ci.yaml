@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-24.04
     permissions:
       contents: read
-      id-token: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup-go-with-takumi-guard
@@ -27,14 +26,12 @@ jobs:
     uses: ./.github/workflows/frontend.yaml
     permissions:
       contents: read
-      id-token: write
   e2e:
     name: End-to-end Test
     runs-on: ubuntu-24.04
     needs: [test, ui]
     permissions:
       contents: read
-      id-token: write
     strategy:
       matrix:
         k8s-version:
@@ -184,7 +181,6 @@ jobs:
     runs-on: ubuntu-24.04
     permissions:
       contents: read
-      id-token: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup-aqua
@@ -197,7 +193,6 @@ jobs:
     needs: [ui]
     permissions:
       contents: read
-      id-token: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup-go-with-takumi-guard
@@ -211,7 +206,6 @@ jobs:
     needs: [ui, check-goreleaser-config]
     permissions:
       contents: read
-      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
