@@ -12,9 +12,7 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
-        with:
-          go-version-file: go.mod
+      - uses: ./.github/actions/setup-go-with-takumi-guard
       - uses: ./.github/actions/setup-aqua
         with:
           save-cache: true
@@ -28,7 +26,6 @@ jobs:
     uses: ./.github/workflows/frontend.yaml
     permissions:
       contents: read
-      id-token: write
   e2e:
     name: End-to-end Test
     runs-on: ubuntu-24.04
@@ -44,9 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/download-ui-dist
-      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
-        with:
-          go-version-file: go.mod
+      - uses: ./.github/actions/setup-go-with-takumi-guard
       - uses: ./.github/actions/setup-aqua
       - run: |
           cat > ./e2e/manifests/website/.ssh/id_rsa <<EOF
@@ -200,9 +195,7 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
-        with:
-          go-version-file: go.mod
+      - uses: ./.github/actions/setup-go-with-takumi-guard
       - uses: ./.github/actions/download-ui-dist
       - uses: ./.github/actions/setup-aqua
       - run: make dev
@@ -220,9 +213,7 @@ jobs:
           fetch-depth: 0
       - uses: docker/setup-qemu-action@96fe6ef7f33517b61c61be40b68a1882f3264fb8 # v4.2.0
       - uses: docker/setup-buildx-action@37fe631027851001ddb9b187196cc803df7f5f0e # v4.3.0
-      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
-        with:
-          go-version-file: go.mod
+      - uses: ./.github/actions/setup-go-with-takumi-guard
       - uses: ./.github/actions/download-ui-dist
       - uses: ./.github/actions/setup-aqua
       - name: Setup tag for goreleaser
