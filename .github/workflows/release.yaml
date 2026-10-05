@@ -15,6 +15,7 @@ jobs:
     permissions:
       contents: write
       packages: write
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -34,6 +35,8 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: ./.github/actions/setup-go-with-takumi-guard
+        with:
+          bot-id: ${{ vars.TAKUMI_GUARD_BOT_ID }}
       - uses: ./.github/actions/setup-aqua
       - name: Set previous release tag for GoReleaser
         run: |
@@ -86,19 +89,19 @@ jobs:
         run: |
           helm repo add website-operator https://cybozu-go.github.io/website-operator
           helm repo update
-          
+
           # get the release tag version
           tag_version=${GITHUB_REF##*/v}
-          
+
           # get the latest chart version
           chart_version=$(helm search repo website-operator -o json | jq -r 'sort_by(.version) | .[-1].version')
           chart_patch_version=${chart_version##*.}
           new_patch_version=$(($chart_patch_version+1))
-          
+
           # if minor or major version changed, reset new patch version
           local_version=$(cat charts/website-operator/Chart.yaml | yq .version | sed "s/0-chart-patch-version-placeholder/$chart_patch_version/g")
           [ "$local_version" != "$chart_version" ] && new_patch_version=0
-          
+
           # replace placeholder with new version
           sed --in-place "s/app-version-placeholder/$tag_version/g" charts/website-operator/Chart.yaml
           sed --in-place "s/0-chart-patch-version-placeholder/$new_patch_version/g" charts/website-operator/Chart.yaml
@@ -108,7 +111,7 @@ jobs:
           tag_version=${GITHUB_REF##*/}
           cat <<EOF > ./charts/website-operator/RELEASE.md
           Helm chart for Website Operator [$tag_version](https://github.com/cybozu-go/website-operator/releases/tag/$tag_version)
-          
+
           EOF
       - name: Configure Git
         run: |
