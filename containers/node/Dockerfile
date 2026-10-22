@@ -1,15 +1,15 @@
-ARG NODE_VERSION=24.20.0
+ARG NODE_VERSION=24.22.1
 ARG PNPM_VERSION=v11.25.0
 ARG BASE_TAG=24.04
 
 FROM scratch AS node-amd64
 ARG NODE_VERSION
-ADD --checksum=sha256:855d581f8a4eb1a8117e3426de25fe02770592febcfb31369aee1ffbfee9e8ec \
+ADD --checksum=sha256:eb6728e77c576a35162c122c45ccadf224d89ff00abc8dae46cc2897c6002d7c \
     https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz /node.tar.gz
 
 FROM scratch AS node-arm64
 ARG NODE_VERSION
-ADD --checksum=sha256:3515603e2487879a39bc75716f1a2affd027500c64ba50e845cf72cb33219013 \
+ADD --checksum=sha256:33c37be234ba8bee041961047b19160f4d7d0f164e8e246f78bdd10feff148b3 \
     https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-arm64.tar.gz /node.tar.gz
 
 FROM scratch AS pnpm-amd64
