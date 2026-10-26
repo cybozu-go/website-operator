@@ -8,6 +8,7 @@ git checkout $REVISION
 python3 -m venv venv
 source venv/bin/activate
 
+export PIP_INDEX_URL=https://pypi.flatt.tech/simple/
 pip3 install -r requirements.txt
 mkdocs build
 
