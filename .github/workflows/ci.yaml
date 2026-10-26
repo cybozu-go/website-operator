@@ -29,6 +29,7 @@ jobs:
     uses: ./.github/workflows/frontend.yaml
     permissions:
       contents: read
+      id-token: write
   e2e:
     name: End-to-end Test
     runs-on: ubuntu-24.04
@@ -203,6 +204,10 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup-go-with-takumi-guard
+        with:
+          bot-id: ${{ vars.TAKUMI_GUARD_BOT_ID }}
+      # `tilt ci` runs `make frontend` (pnpm install) via the Tiltfile.
+      - uses: ./.github/actions/setup-pnpm-and-node-with-takumi-guard
         with:
           bot-id: ${{ vars.TAKUMI_GUARD_BOT_ID }}
       - uses: ./.github/actions/download-ui-dist
