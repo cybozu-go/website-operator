@@ -3,7 +3,7 @@ description: Set up Go and Takumi Guard
 inputs:
   bot-id:
     description: Takumi Guard bot ID
-    required: false
+    required: true
 
 runs:
   using: composite
