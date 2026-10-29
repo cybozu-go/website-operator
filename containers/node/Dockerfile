@@ -1,25 +1,25 @@
-ARG NODE_VERSION=24.22.1
-ARG PNPM_VERSION=v11.25.0
+ARG NODE_VERSION=24.22.2
+ARG PNPM_VERSION=v11.28.9
 ARG BASE_TAG=24.04
 
 FROM scratch AS node-amd64
 ARG NODE_VERSION
-ADD --checksum=sha256:eb6728e77c576a35162c122c45ccadf224d89ff00abc8dae46cc2897c6002d7c \
+ADD --checksum=sha256:361718c444e49af2ca5a110c83ba6a8901143f23ab285ebbef0341f391f482a9 \
     https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz /node.tar.gz
 
 FROM scratch AS node-arm64
 ARG NODE_VERSION
-ADD --checksum=sha256:33c37be234ba8bee041961047b19160f4d7d0f164e8e246f78bdd10feff148b3 \
+ADD --checksum=sha256:95c264150aceb7f3437a29fd6984924f5f8d1511ea3cbd6c508b83f6c555dae2 \
     https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-arm64.tar.gz /node.tar.gz
 
 FROM scratch AS pnpm-amd64
 ARG PNPM_VERSION
-ADD --checksum=sha256:11caeed8b581d460638f836f10f6ead19cbf08d774a5b8e502628b20ebf3ac43 \
+ADD --checksum=sha256:44588952c6e0e2c25f5b3363c5736d7a176ce8dc6200ae8179bd688e60a212a7 \
     https://github.com/pnpm/pnpm/releases/download/${PNPM_VERSION}/pnpm-linux-x64.tar.gz /pnpm.tar.gz
 
 FROM scratch AS pnpm-arm64
 ARG PNPM_VERSION
-ADD --checksum=sha256:6d62b433b7a77b77e814dfaca8032bae57bb79c1a5ad50442e688c4f7fed3c8a \
+ADD --checksum=sha256:2da5106f94a6b34b8ed59c8a9b8223c0f32621f4494b4d7644b672b8aac1ba4f \
     https://github.com/pnpm/pnpm/releases/download/${PNPM_VERSION}/pnpm-linux-arm64.tar.gz /pnpm.tar.gz
 
 # Select the right download stage based on the target architecture
@@ -59,6 +59,7 @@ RUN --mount=type=bind,from=pnpm-download,source=/pnpm.tar.gz,target=/tmp/pnpm.ta
     mkdir -p /opt/pnpm \
  && tar xf /tmp/pnpm.tar.gz -C /opt/pnpm \
  && ln -sf /opt/pnpm/pnpm /usr/local/bin/pnpm \
+ && mkdir -p "$PNPM_HOME" \
  && pnpm config set -g minimumReleaseAge 1440 \
  && chown -R 1000:1000 "$PNPM_HOME"
 
