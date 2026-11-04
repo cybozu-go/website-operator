@@ -5,5 +5,6 @@ git clone $REPO_URL
 cd $REPO_NAME
 git checkout $REVISION
 
+pnpm config set registry https://npm.flatt.tech/
 pnpm install --frozen-lockfile
 pnpm run build
