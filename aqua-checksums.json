@@ -21,6 +21,26 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/google/go-containerregistry/v0.22.1/go-containerregistry_Darwin_arm64.tar.gz",
+      "checksum": "2231FC8DF8806D20D680FF1225DB44E095A55DD6AC1AE8ECED4FAF4B278B78FB",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/google/go-containerregistry/v0.22.1/go-containerregistry_Darwin_x86_64.tar.gz",
+      "checksum": "6FEDD06A648C11335F0E8B9547E4783002C30E9336047FEC292942CD518BB799",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/google/go-containerregistry/v0.22.1/go-containerregistry_Linux_arm64.tar.gz",
+      "checksum": "898C0CFF975F898A33E8C4580BDAFB0E7C02C7FAA33374E946762F97C4AB7110",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/google/go-containerregistry/v0.22.1/go-containerregistry_Linux_x86_64.tar.gz",
+      "checksum": "0AB7A1D6932A213AED964CE97666C3077FE691C8606413674A8B3E0B9EC4CDA0",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/goreleaser/goreleaser/v2.18.0/goreleaser_Darwin_all.tar.gz",
       "checksum": "285ABB188274F3EEBFFB97FCD17A7D25F109FE33E234597C393E78E869386D5C",
       "algorithm": "sha256"
