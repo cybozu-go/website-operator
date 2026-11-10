@@ -1,4 +1,4 @@
-KUBERNETES_VERSION := v1.35.0@sha256:452d707d4862f52530247495d180205e029056831160e22870e37e3f6c1ac31f # renovate: kindest/node
+KUBERNETES_VERSION := v1.36.4@sha256:099e049362a1526b2db71494e1947aae99bd16290d7c895f2b7ea312e3cbfaed # renovate: kindest/node
 REGISTRY := ghcr.io/cybozu-go/
 KIND_CLUSTER_NAME=website-e2e
 

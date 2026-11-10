@@ -9,18 +9,18 @@ checksum:
     - linux
 registries:
   - type: standard
-    ref: v4.558.1 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.583.0 # renovate: depName=aquaproj/aqua-registry
 packages:
   - name: arttor/helmify@v0.4.20
   - name: goreleaser/goreleaser@v2.18.0
   - name: suzuki-shunsuke/pinact@v4.1.1
-  - name: kubernetes-sigs/controller-runtime/setup-envtest@v0.23.3
-  - name: kubernetes-sigs/controller-tools/controller-gen@v0.20.1
-  - name: kubernetes-sigs/kind@v0.31.0
-  - name: kubernetes-sigs/kubebuilder@v4.14.0
-  - name: kubernetes-sigs/kustomize@kustomize/v5.8.1
-  - name: kubernetes/kubectl@v1.35.5
+  - name: kubernetes-sigs/controller-runtime/setup-envtest@v0.24.1
+  - name: kubernetes-sigs/controller-tools/controller-gen@v0.21.0
+  - name: kubernetes-sigs/kind@v0.33.0
+  - name: kubernetes-sigs/kubebuilder@v4.16.0
+  - name: kubernetes-sigs/kustomize@kustomize/v5.8.3
+  - name: kubernetes/kubectl@v1.36.6
   - name: mikefarah/yq@v4.53.2
-  - name: tilt-dev/ctlptl@v0.9.3
-  - name: tilt-dev/tilt@v0.37.3
+  - name: tilt-dev/ctlptl@v0.9.5
+  - name: tilt-dev/tilt@v0.37.7
   - name: google/go-containerregistry@v0.22.1
