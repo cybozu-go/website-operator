@@ -1,6 +1,7 @@
 package e2e
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"net/http"
@@ -76,5 +77,35 @@ func testBootstrap() {
 
 	It("should launch mkdocs-sample", func() {
 		testWebSite("mkdocs-sample")
+	})
+
+	It("should launch honkit-sample-es and register search index to OpenSearch", func() {
+		testWebSite("honkit-sample-es")
+
+		By("querying the search index via HTTPProxy")
+		req, err := http.NewRequest(http.MethodGet, "http://127.0.0.1/es/honkit-sample-es-*/_count", nil)
+		Expect(err).ShouldNot(HaveOccurred())
+		req.Host = "honkit-sample-es.default.example.com"
+		client := http.Client{}
+		Eventually(func() error {
+			res, err := client.Do(req)
+			if err != nil {
+				return err
+			}
+			defer res.Body.Close()
+			if res.StatusCode != http.StatusOK {
+				return fmt.Errorf("status should be ok: %s", res.Status)
+			}
+			var result struct {
+				Count int `json:"count"`
+			}
+			if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+				return err
+			}
+			if result.Count == 0 {
+				return errors.New("search index should have documents")
+			}
+			return nil
+		}, 30*time.Second).Should(Succeed())
 	})
 }

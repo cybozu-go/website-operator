@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app.kubernetes.io/name: opensearch
+    app.kubernetes.io/instance: honkit-search
+  name: honkit-search
+  namespace: default
+spec:
+  replicas: 1
+  serviceName: honkit-search
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opensearch
+      app.kubernetes.io/instance: honkit-search
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opensearch
+        app.kubernetes.io/instance: honkit-search
+    spec:
+      containers:
+        - env:
+            - name: OPENSEARCH_JAVA_OPTS
+              value: -Xms1g -Xmx1g
+            - name: discovery.type
+              value: single-node
+            # Disable the security plugin so that indices can be created over plain HTTP without credentials.
+            - name: DISABLE_SECURITY_PLUGIN
+              value: "true"
+            - name: DISABLE_INSTALL_DEMO_CONFIG
+              value: "true"
+          image: ghcr.io/cybozu-go/website-operator-opensearch:dev
+          imagePullPolicy: IfNotPresent
+          name: opensearch
+          ports:
+            - containerPort: 9200
+              name: http
+              protocol: TCP
+            - containerPort: 9300
+              name: transport
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /_cluster/health?wait_for_status=yellow&timeout=1s
+              port: http
+            periodSeconds: 5
+          resources:
+            limits:
+              memory: 2Gi
+            requests:
+              cpu: 500m
+              memory: 2Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: opensearch
+    app.kubernetes.io/instance: honkit-search
+  name: honkit-search
+  namespace: default
+spec:
+  ports:
+    - port: 9200
+      name: http
+  selector:
+    app.kubernetes.io/name: opensearch
+    app.kubernetes.io/instance: honkit-search
