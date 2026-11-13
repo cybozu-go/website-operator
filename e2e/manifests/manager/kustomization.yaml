@@ -21,4 +21,4 @@ configMapGenerator:
   - name: after-build-scripts
     files:
       - after-build-honkit.sh
-      - create-honkit-es-index.sh
+      - create-honkit-search-index.sh

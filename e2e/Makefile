@@ -24,6 +24,9 @@ test: launch-kind load-images setup-cluster
 	kustomize build ./manifests/manager | kubectl apply -f -
 	kubectl wait pod -l control-plane=controller-manager -n website-operator-system --for condition=Ready --timeout 180s
 	kustomize build ./manifests/website | kubectl apply -f -
+	kubectl apply -f ./manifests/sample/opensearch.yaml
+	kubectl rollout status statefulset/honkit-search -n default --timeout 300s
+	kustomize build ./manifests/sample | kubectl apply -f -
 	env E2E_TEST=1 go test -count=1 -v . -args -ginkgo.v -ginkgo.fail-fast
 
 # Build all artifacts for the architecture of the host machine and load them into the kind cluster.

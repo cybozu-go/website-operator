@@ -52,7 +52,7 @@ spec:
   afterBuildScript: 
     rawData: |
         #!/bin/bash -ex
-        curl -k -X POST https://elasticsearch:9200/test/_bulk -H 'Content-Type: application/json'  --data-binary @index.json
+        curl -k -X POST https://opensearch:9200/test/_bulk -H 'Content-Type: application/json'  --data-binary @index.json
 
   repoURL: https://github.com/neco-test/honkit-sample.git
   branch: main
