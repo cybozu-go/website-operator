@@ -4,3 +4,7 @@ LABEL org.opencontainers.image.source=https://github.com/cybozu-go/website-opera
 
 RUN elasticsearch-plugin install analysis-kuromoji \
     && elasticsearch-plugin install analysis-icu
+
+# Mitigation for CVE-2026-114938 (Java4Shell): disable the AVX-512 Base64 intrinsics.
+# Remove this once the bundled JDK includes the fix.
+RUN echo "-XX:-UseBASE64Intrinsics" > /usr/share/elasticsearch/config/jvm.options.d/java4shell.options
