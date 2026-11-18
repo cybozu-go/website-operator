@@ -52,6 +52,10 @@ RUN apt-get update \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
+# Mitigation for CVE-2026-114938 (Java4Shell): disable the AVX-512 Base64 intrinsics.
+# Remove this once the Ubuntu openjdk-21 package includes the fix.
+ENV JAVA_TOOL_OPTIONS="-XX:-UseBASE64Intrinsics"
+
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME/bin:$PATH"
 
